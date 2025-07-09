@@ -25,7 +25,7 @@ form?.addEventListener('submit', async (e) => {
       statusEl.textContent = 'Credenciales incorrectas';
     }
   } catch (err) {
-    statusEl.textContent = 'Error de conexión';
+    statusEl.textContent = 'Error de conexión2';
   }
 });
 
