@@ -1,36 +1,30 @@
+<!-- ===================== js/login.js ===================== -->
 /*
- Demo login: consulta un Google Sheet público
- con columnas user | pass | nombre.
+  Demo login: consulta la pestaña "ingresos" para validar.
+  Tras login exitoso, redirige a profile.html
 */
 const form = document.getElementById('loginForm');
 const statusEl = document.getElementById('loginStatus');
 
-// Reemplaza con TU Sheet ID y el nombre de la pestaña
-const SHEET_ID   = '1_PVAMz08cWlU8hvcvwIRuyMTskB5DT-zwP2nTY5DQd4';
-const SHEET_TAB  = 'ingresos';           // nombre exacto de la pestaña
-const SHEET_URL  = `https://opensheet.elk.sh/${SHEET_ID}/${SHEET_TAB}`;
+const SHEET_ID  = '1_PVAMz08cWlU8hvcvwIRuyMTskB5DT-zwP2nTY5DQd4';
+const LOGIN_TAB = 'ingresos';
+const LOGIN_URL = `https://opensheet.elk.sh/${SHEET_ID}/${LOGIN_TAB}`;
 
 form?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const data = new FormData(form);
   const user = data.get('user');
   const pass = data.get('pass');
-
   statusEl.textContent = 'Verificando…';
-
   try {
-  //  const resp = await fetch(SHEET_URL);
-   const resp = await fetch("https://opensheet.elk.sh/1_PVAMz08cWlU8hvcvwIRuyMTskB5DT-zwP2nTY5DQd4/ingresos");
-    if (!resp.ok) throw new Error('Network response not ok');
+    const resp = await fetch(LOGIN_URL);
+    if (!resp.ok) throw new Error('Network error');
     const rows = await resp.json();
-
-    const found = rows.find(
-      (r) => r.user?.trim() === user && r.pass?.trim() === pass
-    );
-
+    const found = rows.find(r => r.user === user && r.pass === pass);
     if (found) {
       localStorage.setItem('session', JSON.stringify(found));
-      statusEl.textContent = `¡Bienvenido, ${found.nombre}!`;
+      // redirigir al perfil
+      window.location.href = 'profile.html';
     } else {
       statusEl.textContent = 'Credenciales incorrectas';
     }
@@ -39,3 +33,7 @@ form?.addEventListener('submit', async (e) => {
     statusEl.textContent = 'Error de conexión';
   }
 });
+
+/*
+- Columnas requeridas en "ingresos": user | pass | nombre
+*/
