@@ -15,7 +15,7 @@ form?.addEventListener('submit', async (e) => {
   statusEl.textContent = 'Verificando…';
 
   try {
-    const resp = await fetch(`https://opensheet.elk.sh/SHEET_ID/usuarios`);
+    const resp = await fetch(`https://opensheet.elk.sh/https://docs.google.com/spreadsheets/d/1_PVAMz08cWlU8hvcvwIRuyMTskB5DT-zwP2nTY5DQd4/edit?usp=drivesdk/ingresos`);
     const rows = await resp.json();
     const found = rows.find(r => r.user === user && r.pass === pass);
     if (found) {
