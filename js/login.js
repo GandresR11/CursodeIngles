@@ -12,7 +12,7 @@ form?.addEventListener('submit', async (e) => {
   const user = data.get('user');
   const pass = data.get('pass');
 
-  statusEl.textContent = 'Verificando…';
+  statusEl.textContent = '2Verificando…';
 
   try {
     const resp = await fetch(`https://opensheet.elk.sh/https://docs.google.com/spreadsheets/d/1_PVAMz08cWlU8hvcvwIRuyMTskB5DT-zwP2nTY5DQd4/edit?usp=drivesdk/ingresos`);
