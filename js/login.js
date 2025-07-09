@@ -1,0 +1,38 @@
+<!-- ===================== js/login.js ===================== -->
+/*
+ Demo login: consulta un Google Sheet público con columnas user, pass, nombre.
+ Reemplaza SHEET_ID y hoja.
+*/
+const form = document.getElementById('loginForm');
+const statusEl = document.getElementById('loginStatus');
+
+form?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const data = new FormData(form);
+  const user = data.get('user');
+  const pass = data.get('pass');
+
+  statusEl.textContent = 'Verificando…';
+
+  try {
+    const resp = await fetch(`https://opensheet.elk.sh/SHEET_ID/usuarios`);
+    const rows = await resp.json();
+    const found = rows.find(r => r.user === user && r.pass === pass);
+    if (found) {
+      localStorage.setItem('session', JSON.stringify(found));
+      statusEl.textContent = `¡Bienvenido, ${found.nombre}!`;
+    } else {
+      statusEl.textContent = 'Credenciales incorrectas';
+    }
+  } catch (err) {
+    statusEl.textContent = 'Error de conexión';
+  }
+});
+
+/*
+Notas:
+- Crea tu Google Sheet con columnas user | pass | nombre.
+- Compártelo como “Link Anyone can view”.
+- Toma el ID del Sheet y reemplaza SHEET_ID.
+- opensheet.elk.sh convierte tu Sheet en JSON gratis.
+*/
