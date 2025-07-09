@@ -1,1 +1,28 @@
+<!-- ===================== service-web.html ===================== -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Consultoría en Desarrollo Web</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans text-gray-800">
+  <nav class="bg-blue-800 text-white py-4 px-4"><a href="index.html" class="font-bold">← Volver</a></nav>
+
+  <main class="container mx-auto px-4 py-12">
+    <h1 class="text-3xl font-bold mb-4">Consultoría en Desarrollo Web</h1>
+    <p class="mb-6">[Descripción de prueba] Ayudo a empresas y emprendedores a crear sitios web rápidos, seguros y orientados a conversión.</p>
+
+    <!-- Formulario (Netlify) -->
+    <form name="web-consult" method="POST" data-netlify="true" class="bg-gray-50 p-6 rounded-lg shadow max-w-lg">
+      <h2 class="text-xl font-semibold mb-4">Solicita más información</h2>
+      <div class="mb-4"><label class="block mb-1">Nombre<input type="text" name="nombre" class="w-full border px-3 py-2 rounded" required></label></div>
+      <div class="mb-4"><label class="block mb-1">Email<input type="email" name="email" class="w-full border px-3 py-2 rounded" required></label></div>
+      <div class="mb-4"><label class="block mb-1">Mensaje<textarea name="mensaje" class="w-full border px-3 py-2 rounded" rows="4" required></textarea></label></div>
+      <button class="bg-blue-700 text-white px-4 py-2 rounded">Enviar</button>
+    </form>
+  </main>
+</body>
+</html>
 
