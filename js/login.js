@@ -12,10 +12,10 @@ form?.addEventListener('submit', async (e) => {
   const user = data.get('user');
   const pass = data.get('pass');
 
-  statusEl.textContent = '2Verificando…';
+  statusEl.textContent = '3Verificando…';
 
   try {
-    const resp = await fetch(`https://opensheet.elk.sh/https://docs.google.com/spreadsheets/d/1_PVAMz08cWlU8hvcvwIRuyMTskB5DT-zwP2nTY5DQd4/edit?usp=drivesdk/ingresos`);
+    const resp = await fetch(`https://opensheet.elk.sh/https://docs.google.com/spreadsheets/d/1_PVAMz08cWlU8hvcvwIRuyMTskB5DT-zwP2nTY5DQd4/edit?gid=608855978#gid=608855978`);
     const rows = await resp.json();
     const found = rows.find(r => r.user === user && r.pass === pass);
     if (found) {
