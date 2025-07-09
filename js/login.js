@@ -1,10 +1,14 @@
-<!-- ===================== js/login.js ===================== -->
 /*
- Demo login: consulta un Google Sheet público con columnas user, pass, nombre.
- Reemplaza SHEET_ID y hoja.
+ Demo login: consulta un Google Sheet público
+ con columnas user | pass | nombre.
 */
 const form = document.getElementById('loginForm');
 const statusEl = document.getElementById('loginStatus');
+
+// Reemplaza con TU Sheet ID y el nombre de la pestaña
+const SHEET_ID   = '1_PVAMz08cWlU8hvcvwIRuyMTskB5DT-zwP2nTY5DQd4';
+const SHEET_TAB  = 'ingresos';           // nombre exacto de la pestaña
+const SHEET_URL  = `https://opensheet.elk.sh/${SHEET_ID}/${SHEET_TAB}`;
 
 form?.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -12,12 +16,17 @@ form?.addEventListener('submit', async (e) => {
   const user = data.get('user');
   const pass = data.get('pass');
 
-  statusEl.textContent = '3Verificando…';
+  statusEl.textContent = 'Verificando…';
 
   try {
-    const resp = await fetch(`https://opensheet.elk.sh/https://docs.google.com/spreadsheets/d/1_PVAMz08cWlU8hvcvwIRuyMTskB5DT-zwP2nTY5DQd4/edit?gid=608855978#gid=608855978`);
+    const resp = await fetch(SHEET_URL);
+    if (!resp.ok) throw new Error('Network response not ok');
     const rows = await resp.json();
-    const found = rows.find(r => r.user === user && r.pass === pass);
+
+    const found = rows.find(
+      (r) => r.user?.trim() === user && r.pass?.trim() === pass
+    );
+
     if (found) {
       localStorage.setItem('session', JSON.stringify(found));
       statusEl.textContent = `¡Bienvenido, ${found.nombre}!`;
@@ -25,14 +34,7 @@ form?.addEventListener('submit', async (e) => {
       statusEl.textContent = 'Credenciales incorrectas';
     }
   } catch (err) {
-    statusEl.textContent = 'Error de conexión2';
+    console.error(err);
+    statusEl.textContent = 'Error de conexión';
   }
 });
-
-/*
-Notas:
-- Crea tu Google Sheet con columnas user | pass | nombre.
-- Compártelo como “Link Anyone can view”.
-- Toma el ID del Sheet y reemplaza SHEET_ID.
-- opensheet.elk.sh convierte tu Sheet en JSON gratis.
-*/
