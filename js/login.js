@@ -19,7 +19,8 @@ form?.addEventListener('submit', async (e) => {
   statusEl.textContent = 'Verificando…';
 
   try {
-    const resp = await fetch(SHEET_URL);
+  //  const resp = await fetch(SHEET_URL);
+   const resp = await fetch("https://opensheet.elk.sh/1_PVAMz08cWlU8hvcvwIRuyMTskB5DT-zwP2nTY5DQd4/ingresos");
     if (!resp.ok) throw new Error('Network response not ok');
     const rows = await resp.json();
 
