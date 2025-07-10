@@ -7,15 +7,33 @@
   <title>Perfil de Usuario</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="font-sans min-h-screen bg-gray-100">
-  <nav class="bg-blue-800 text-white py-4 px-6 flex justify-between">
-    <span class="font-bold">MiMarca</span>
-    <a href="index.html" class="hover:underline">Salir</a>
+<body class="font-sans text-gray-800 bg-gray-100">
+  <!-- NAV -->
+  <nav class="bg-white shadow-sm py-4 sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <a class="font-bold text-xl text-blue-700" href="index.html">MiMarca</a>
+      <a href="index.html" class="text-blue-700 hover:text-blue-500">Salir</a>
+    </div>
   </nav>
 
+  <!-- HEADER -->
+  <header class="relative text-white py-20 text-center px-4 overflow-hidden bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1555529669-e69c1f7b9f91?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');">
+    <div class="absolute inset-0 bg-blue-900 opacity-70"></div>
+    <div class="relative z-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Tu Perfil Profesional</h1>
+      <p class="text-lg md:text-xl max-w-xl mx-auto">Visualiza, edita y gestiona tu información personal y profesional desde esta plataforma.</p>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
   <main class="container mx-auto px-4 py-12" id="profileContainer">
     <!-- contenido dinámico -->
   </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white text-center text-sm text-gray-500 py-6 border-t">
+    © 2025 MiMarca. Todos los derechos reservados.
+  </footer>
 
   <script src="js/profile.js"></script>
 </body>
