@@ -6,21 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Quién Soy - MiMarca</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade-in-up {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+  </style>
 </head>
-<body class="font-sans text-gray-800">
+<body class="font-sans text-gray-800 bg-gray-100">
+
   <!-- NAV -->
-  <nav class="bg-blue-800 text-white py-4 px-4">
-    <a href="index.html" class="font-bold">← Volver</a>
+  <nav class="bg-white shadow-sm py-4 sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <a class="font-bold text-xl text-blue-700" href="index.html">MiMarca</a>
+      <a href="index.html" class="text-blue-700 hover:underline text-sm">← Volver</a>
+    </div>
   </nav>
 
   <!-- HERO -->
-  <header class="bg-gradient-to-r from-blue-700 to-blue-500 text-white py-20 px-4 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">Conoce a Guillermo</h1>
-    <p class="text-lg md:text-xl max-w-2xl mx-auto">Impulsando negocios con liderazgo, habilidades digitales y visión estratégica.</p>
+  <header class="relative text-white py-24 text-center px-4 overflow-hidden bg-cover bg-center scroll-reveal opacity-0 translate-y-6 transition-all duration-1000 ease-out" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1950&q=80');">
+    <div class="absolute inset-0 bg-blue-900 opacity-70"></div>
+    <div class="relative z-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Conoce a Guillermo</h1>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto">Impulsando negocios con liderazgo, habilidades digitales y visión estratégica.</p>
+    </div>
   </header>
 
   <!-- PERFIL PROFESIONAL -->
-  <section class="py-16 px-6 max-w-4xl mx-auto">
+  <section class="py-16 px-6 max-w-4xl mx-auto scroll-reveal opacity-0 translate-y-6 transition-all duration-1000 ease-out delay-200">
     <div class="bg-white rounded-2xl shadow-lg p-8">
       <h2 class="text-2xl font-bold mb-4 text-blue-800">Perfil Profesional</h2>
       <p class="text-gray-700 mb-6">
@@ -40,119 +53,116 @@
         Con una visión estratégica y práctica, Guillermo ofrece servicios de consultoría que integran liderazgo, innovación y tecnología. Su compromiso es ayudar a las personas y empresas a evolucionar, adaptarse y destacar en entornos competitivos y digitales.
       </p>
 
-      <!-- LinkedIn Embed -->
-<a href="https://www.linkedin.com/in/guillermo-andres-riano-mendoza-a7994a1b4/" target="_blank" class="linkedin-card">
-  <div class="card-header"></div>
-  <div class="card-body">
-    <img class="profile-pic" src="Img perfil LkIN.png" alt="Guillermo Andres Riaño Mendoza">
-    <h2 class="name">Guillermo Andres Riaño Mendoza <span class="verified">✔️</span></h2>
-    <p class="title">Administrador de Empresas | Gestión de Proyectos y Planeación Estratégica con Uso de Tecnología, IA y Herramientas Digitales | Alta Gerencia</p>
-    <p class="location">Bucaramanga, Santander, Colombia · <span class="contact">Información de contacto</span></p>
-  </div>
-</a>
+      <!-- LINKEDIN CARD -->
+      <a href="https://www.linkedin.com/in/guillermo-andres-riano-mendoza-a7994a1b4/" target="_blank" class="linkedin-card scroll-reveal opacity-0 translate-y-6 transition-all duration-1000 ease-out delay-300">
+        <div class="card-header"></div>
+        <div class="card-body">
+          <img class="profile-pic" src="Img perfil LkIN.png" alt="Guillermo Andres Riaño Mendoza">
+          <h2 class="name">Guillermo Andres Riaño Mendoza <span class="verified">✔️</span></h2>
+          <p class="title">Administrador de Empresas | Gestión de Proyectos y Planeación Estratégica con Uso de Tecnología, IA y Herramientas Digitales | Alta Gerencia</p>
+          <p class="location">Bucaramanga, Santander, Colombia · <span class="contact">Información de contacto</span></p>
+        </div>
+      </a>
 
-<style>
-.linkedin-card {
-  display: block;
-  max-width: 400px;
-  width: 100%;
-  margin: auto;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-decoration: none;
-  color: inherit;
-  font-family: 'Segoe UI', sans-serif;
-  background: white;
-  position: relative;
-}
+      <style>
+        .linkedin-card {
+          display: block;
+          max-width: 400px;
+          width: 100%;
+          margin: auto;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          text-decoration: none;
+          color: inherit;
+          font-family: 'Segoe UI', sans-serif;
+          background: white;
+          position: relative;
+        }
+        .card-header {
+          height: 100px;
+          background-color: #9FBFC2;
+          position: relative;
+        }
+        .card-header::after {
+          content: "";
+          position: absolute;
+          width: 200px;
+          height: 200px;
+          background-color: #9FBFC2;
+          border-radius: 50%;
+          right: -100px;
+          top: -100px;
+        }
+        .card-body {
+          padding: 60px 16px 16px;
+          position: relative;
+          text-align: left;
+        }
+        .profile-pic {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          border: 3px solid white;
+          position: absolute;
+          top: -40px;
+          left: 16px;
+          object-fit: cover;
+        }
+        .name {
+          margin: 0 0 4px 0;
+          font-size: 1.1rem;
+          font-weight: 600;
+        }
+        .verified {
+          font-size: 0.9rem;
+          color: #0A66C2;
+          vertical-align: middle;
+        }
+        .title, .location {
+          margin: 4px 0;
+          font-size: 0.9rem;
+          line-height: 1.3;
+          color: #444;
+        }
+        .contact {
+          color: #0A66C2;
+          cursor: pointer;
+          text-decoration: underline;
+        }
 
-/* Cabecera con fondo y forma curva */
-.card-header {
-  height: 100px;
-  background-color: #9FBF C2; /* tu color */
-  position: relative;
-}
-.card-header::after {
-  content: "";
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background-color: #9FBFC2;
-  border-radius: 50%;
-  right: -100px;
-  top: -100px;
-}
-
-/* Cuerpo */
-.card-body {
-  padding: 60px 16px 16px;
-  position: relative;
-  text-align: left;
-}
-
-/* Foto de perfil */
-.profile-pic {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 3px solid white;
-  position: absolute;
-  top: -40px;
-  left: 16px;
-  object-fit: cover;
-}
-
-/* Tipografías */
-.name {
-  margin: 0 0 4px 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-.verified {
-  font-size: 0.9rem;
-  color: #0A66C2;
-  vertical-align: middle;
-}
-.title, .location {
-  margin: 4px 0;
-  font-size: 0.9rem;
-  line-height: 1.3;
-  color: #444;
-}
-.contact {
-  color: #0A66C2;
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-  .card-header { height: 80px; }
-  .card-header::after { width: 160px; height: 160px; right: -80px; top: -80px; }
-
-  .profile-pic {
-    width: 64px;
-    height: 64px;
-    top: -32px;
-    left: 12px;
-    border-width: 2px;
-  }
-  .card-body { padding: 48px 12px 12px; }
-  .name { font-size: 1rem; }
-  .title, .location { font-size: 0.8rem; }
-}
-</style>
-
-
-      
-    
+        @media (max-width: 480px) {
+          .card-header { height: 80px; }
+          .card-header::after { width: 160px; height: 160px; right: -80px; top: -80px; }
+          .profile-pic { width: 64px; height: 64px; top: -32px; left: 12px; border-width: 2px; }
+          .card-body { padding: 48px 12px 12px; }
+          .name { font-size: 1rem; }
+          .title, .location { font-size: 0.8rem; }
+        }
+      </style>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-blue-800 text-white py-6 text-center text-sm">
+  <footer class="bg-white text-center text-sm text-gray-500 py-6 border-t">
     © 2025 MiMarca. Todos los derechos reservados.
   </footer>
+
+  <!-- JS para animaciones en scroll -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
 </body>
 </html>
