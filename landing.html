@@ -3,112 +3,145 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bocetador de Landing Pages</title>
+  <title>Landing Builder - Coaching para Traders</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .estilo-1 { font-family: 'Helvetica Neue', sans-serif; }
-    .estilo-2 { font-family: 'Georgia', serif; }
-    .estilo-3 { font-family: 'Courier New', monospace; }
-    .estilo-4 { font-family: 'Poppins', sans-serif; }
-  </style>
 </head>
-<body class="transition-all ease-in-out duration-300" id="pageBody">
-  <div class="p-4 border-b shadow-md flex gap-4 flex-wrap bg-white sticky top-0 z-10">
-    <div>
-      <label class="block text-sm font-bold mb-1">Estilo</label>
-      <select id="styleSelect" class="p-2 border rounded">
-        <option value="estilo-1">Moderno (Helvetica)</option>
-        <option value="estilo-2">Clásico (Georgia)</option>
-        <option value="estilo-3">Técnico (Courier)</option>
-        <option value="estilo-4">Fresco (Poppins)</option>
-      </select>
-    </div>
+<body class="bg-gray-100">
+  <!-- Volver -->
+  <nav class="bg-blue-800 text-white py-4 px-4">
+    <a href="index.html" class="font-bold">← Volver</a>
+  </nav>
 
-    <div>
-      <label class="block text-sm font-bold mb-1">Colores</label>
-      <select id="colorSelect" class="p-2 border rounded">
-        <option value="azul">Azul / Blanco</option>
-        <option value="oscuro">Gris oscuro / Blanco</option>
-        <option value="verde">Verde / Crema</option>
-        <option value="morado">Morado / Gris claro</option>
-      </select>
+  <!-- Controles -->
+  <section class="bg-white shadow-md p-4 md:p-6 sticky top-0 z-10">
+    <h2 class="text-xl font-semibold mb-2">Configura tu landing</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div>
+        <label class="block font-medium">Estilo de fuente</label>
+        <select id="fontStyle" class="w-full border rounded p-2">
+          <option value="sans">Sans Serif</option>
+          <option value="serif">Serif</option>
+          <option value="mono">Monospace</option>
+          <option value="display">Display</option>
+        </select>
+      </div>
+      <div>
+        <label class="block font-medium">Color base</label>
+        <select id="colorTheme" class="w-full border rounded p-2">
+          <option value="blue">Azul</option>
+          <option value="green">Verde</option>
+          <option value="red">Rojo</option>
+          <option value="purple">Morado</option>
+        </select>
+      </div>
+      <div>
+        <label class="block font-medium">Encabezado</label>
+        <select id="headerStyle" class="w-full border rounded p-2">
+          <option value="hero">Con fondo hero</option>
+          <option value="simple">Simple</option>
+        </select>
+      </div>
+      <div>
+        <label class="block font-medium">Llamado a la acción</label>
+        <select id="ctaOption" class="w-full border rounded p-2">
+          <option value="whatsapp">WhatsApp</option>
+          <option value="form">Formulario</option>
+        </select>
+      </div>
     </div>
+  </section>
 
-    <div>
-      <label class="block text-sm font-bold mb-1">Encabezado</label>
-      <select id="headerSelect" class="p-2 border rounded">
-        <option value="con">Con imagen destacada</option>
-        <option value="sin">Solo texto</option>
-      </select>
-    </div>
-
-    <div>
-      <label class="block text-sm font-bold mb-1">Llamado a la acción</label>
-      <select id="ctaSelect" class="p-2 border rounded">
-        <option value="whatsapp">WhatsApp</option>
-        <option value="formulario">Formulario de contacto</option>
-      </select>
-    </div>
-  </div>
-
-  <main class="p-6" id="landingPreview">
-    <!-- Contenido de la landing inicial -->
-    <section class="text-center py-12">
-      <h1 class="text-4xl font-bold mb-4">Sesiones de Coaching para Traders</h1>
-      <p class="text-lg max-w-xl mx-auto">Eleva tu rendimiento como trader con sesiones personalizadas enfocadas en estrategia, psicología del trading y mejora continua.</p>
+  <!-- Vista previa de landing -->
+  <main id="preview" class="font-sans bg-white max-w-5xl mx-auto shadow mt-6 rounded overflow-hidden">
+    <section class="bg-blue-600 text-white text-center py-20 px-4">
+      <h1 class="text-4xl font-bold mb-4">Coaching Profesional para Traders</h1>
+      <p class="text-xl mb-6">Aumenta tu rendimiento en los mercados con mentorías 1:1 y estrategias comprobadas.</p>
+      <a href="https://wa.me/573156200576" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Habla conmigo por WhatsApp</a>
     </section>
-    <section class="flex justify-center py-8" id="ctaSection">
-      <a href="https://wa.me/573156200576" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition">Contáctame por WhatsApp</a>
+
+    <section class="py-12 px-6 md:px-12 grid md:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-2xl font-bold mb-4">¿Qué incluye el coaching?</h2>
+        <ul class="list-disc list-inside space-y-2 text-lg">
+          <li>Diagnóstico de tus hábitos de trading</li>
+          <li>Plan personalizado de mejora</li>
+          <li>Sesiones en vivo y grabadas</li>
+          <li>Acceso a recursos exclusivos</li>
+          <li>Seguimiento semanal</li>
+        </ul>
+        <p class="mt-6 font-semibold text-green-700">Garantía de satisfacción: ¡o te devolvemos tu dinero!</p>
+      </div>
+      <div>
+        <!-- Imagen representativa del coaching -->
+        <div class="w-full h-64 bg-gray-200 rounded flex items-center justify-center">
+          <p class="text-gray-500">[Aquí va una imagen o video tuyo explicando el servicio]</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-50 py-12 px-6 md:px-12">
+      <h2 class="text-2xl font-bold mb-6 text-center">Casos de Éxito</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-4 shadow rounded">
+          <p class="italic">"Me ayudó a controlar mis emociones y aumentar mi rentabilidad en solo 3 semanas"</p>
+          <p class="font-semibold mt-2">– Ana, trader de Forex</p>
+        </div>
+        <div class="bg-white p-4 shadow rounded">
+          <p class="italic">"La mejor inversión que he hecho en mi formación como trader"</p>
+          <p class="font-semibold mt-2">– Carlos, acciones USA</p>
+        </div>
+        <div class="bg-white p-4 shadow rounded">
+          <p class="italic">"Gracias al coaching dejé de saltar de estrategia en estrategia y me enfoqué"</p>
+          <p class="font-semibold mt-2">– Laura, criptomonedas</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-blue-100 py-12 px-6 md:px-12 text-center">
+      <h2 class="text-3xl font-bold mb-4">¿Listo para transformar tu trading?</h2>
+      <p class="text-lg mb-6">Haz clic abajo y empieza tu proceso con una sesión gratuita de diagnóstico.</p>
+      <a href="https://wa.me/573156200576" class="bg-blue-600 text-white px-8 py-4 rounded-full text-lg hover:bg-blue-700 transition">Quiero mi sesión gratuita</a>
     </section>
   </main>
 
   <script>
-    const body = document.getElementById('pageBody');
-    const preview = document.getElementById('landingPreview');
-    const ctaSection = document.getElementById('ctaSection');
+    const preview = document.getElementById('preview');
+    const fontStyle = document.getElementById('fontStyle');
+    const colorTheme = document.getElementById('colorTheme');
+    const headerStyle = document.getElementById('headerStyle');
+    const ctaOption = document.getElementById('ctaOption');
 
-    document.getElementById('styleSelect').addEventListener('change', (e) => {
-      body.classList.remove('estilo-1', 'estilo-2', 'estilo-3', 'estilo-4');
-      body.classList.add(e.target.value);
+    fontStyle.addEventListener('change', () => {
+      preview.className = `bg-white max-w-5xl mx-auto shadow mt-6 rounded overflow-hidden font-${fontStyle.value}`;
     });
 
-    document.getElementById('colorSelect').addEventListener('change', (e) => {
-      const scheme = e.target.value;
-      switch (scheme) {
-        case 'azul':
-          body.className += ' bg-white text-blue-800';
-          break;
-        case 'oscuro':
-          body.className += ' bg-gray-900 text-white';
-          break;
-        case 'verde':
-          body.className += ' bg-emerald-100 text-emerald-800';
-          break;
-        case 'morado':
-          body.className += ' bg-purple-100 text-purple-800';
-          break;
-      }
+    colorTheme.addEventListener('change', () => {
+      const colors = {
+        blue: 'bg-blue-600 text-white',
+        green: 'bg-green-600 text-white',
+        red: 'bg-red-600 text-white',
+        purple: 'bg-purple-600 text-white'
+      };
+      const hero = preview.querySelector('section');
+      hero.className = `${colors[colorTheme.value]} text-center py-20 px-4`;
     });
 
-    document.getElementById('headerSelect').addEventListener('change', (e) => {
-      const section = preview.querySelector('section');
-      if (e.target.value === 'con') {
-        section.innerHTML = `<img src='https://source.unsplash.com/1200x300/?trading' class='mx-auto mb-6 rounded-lg'><h1 class="text-4xl font-bold mb-4">Sesiones de Coaching para Traders</h1><p class="text-lg max-w-xl mx-auto">Eleva tu rendimiento como trader con sesiones personalizadas enfocadas en estrategia, psicología del trading y mejora continua.</p>`;
+    headerStyle.addEventListener('change', () => {
+      const hero = preview.querySelector('section');
+      hero.style.backgroundImage = headerStyle.value === 'hero'
+        ? "url('https://source.unsplash.com/1600x400/?stock,market')"
+        : '';
+      hero.style.backgroundSize = 'cover';
+    });
+
+    ctaOption.addEventListener('change', () => {
+      const cta = preview.querySelector('section a');
+      if (ctaOption.value === 'whatsapp') {
+        cta.href = 'https://wa.me/573156200576';
+        cta.textContent = 'Habla conmigo por WhatsApp';
       } else {
-        section.innerHTML = `<h1 class="text-4xl font-bold mb-4">Sesiones de Coaching para Traders</h1><p class="text-lg max-w-xl mx-auto">Eleva tu rendimiento como trader con sesiones personalizadas enfocadas en estrategia, psicología del trading y mejora continua.</p>`;
-      }
-    });
-
-    document.getElementById('ctaSelect').addEventListener('change', (e) => {
-      if (e.target.value === 'whatsapp') {
-        ctaSection.innerHTML = `<a href="https://wa.me/573156200576" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition">Contáctame por WhatsApp</a>`;
-      } else {
-        ctaSection.innerHTML = `<form class="max-w-md mx-auto">
-          <input type="text" placeholder="Tu nombre" class="w-full mb-2 p-2 border rounded" />
-          <input type="email" placeholder="Tu email" class="w-full mb-2 p-2 border rounded" />
-          <textarea placeholder="¿Cómo puedo ayudarte?" class="w-full p-2 border rounded mb-2"></textarea>
-          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Enviar</button>
-        </form>`;
+        cta.href = '#formulario';
+        cta.textContent = 'Solicita más información';
       }
     });
   </script>
