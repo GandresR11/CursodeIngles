@@ -8,17 +8,40 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="font-sans text-gray-800">
-  <nav class="bg-blue-800 text-white py-4 px-4"><a href="index.html" class="font-bold">← Volver</a></nav>
-  <main class="container mx-auto px-4 py-12">
-    <h1 class="text-3xl font-bold mb-4">Curso de Inglés Personalizado</h1>
-    <p class="mb-6">[Contenido demo] Clases adaptadas a tu nivel y objetivos profesionales.</p>
-    <form action="https://formspree.io/f/tu_codigo" method="POST" class="bg-gray-50 p-6 rounded-lg shadow max-w-lg">
-      <h2 class="text-xl font-semibold mb-4">Reserva tu plaza</h2>
-      <input type="text" name="nombre" placeholder="Nombre" class="w-full border px-3 py-2 rounded mb-4" required>
-      <input type="email" name="email" placeholder="Email" class="w-full border px-3 py-2 rounded mb-4" required>
-      <textarea name="mensaje" rows="4" placeholder="Objetivos de aprendizaje" class="w-full border px-3 py-2 rounded mb-4" required></textarea>
-      <button class="bg-blue-700 text-white px-4 py-2 rounded" type="submit">Enviar</button>
-    </form>
+  <nav class="bg-blue-800 text-white py-4 px-4">
+    <a href="index.html" class="font-bold">← Volver</a>
+  </nav>
+
+  <header class="bg-blue-700 text-white py-16 text-center px-4">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Curso de Inglés Virtual Personalizado</h1>
+    <p class="text-lg md:text-xl max-w-2xl mx-auto">Aprende inglés con una guía clara, plan de estudios personalizado y acompañamiento 1 a 1 para alcanzar tus metas.</p>
+  </header>
+
+  <main class="py-16 px-4 max-w-4xl mx-auto">
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">¿Qué incluye este curso?</h2>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Plan de estudios individual basado en tu nivel y tus metas.</li>
+        <li>Acceso a un curso completo online alojado en Google Sites.</li>
+        <li>Mentoría y acompañamiento personalizado semanal.</li>
+        <li>Materiales, guías y ejercicios prácticos.</li>
+        <li>Revisión de avances y soporte continuo por WhatsApp.</li>
+      </ul>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">¿Para quién es este curso?</h2>
+      <p class="text-gray-700">Este programa es ideal para personas que quieren aprender inglés desde cero o mejorar su nivel actual con un enfoque personalizado, práctico y guiado. Si has intentado aprender antes y no has logrado resultados, este curso es para ti.</p>
+    </section>
+
+    <div class="flex flex-col md:flex-row gap-4 justify-center">
+      <a href="https://api.whatsapp.com/send?phone=573156200576&text=Hola,%20quiero%20más%20información%20sobre%20el%20curso%20de%20inglés" class="bg-green-500 text-white px-6 py-3 rounded-lg text-center font-semibold hover:bg-green-600 transition">Contáctame por WhatsApp</a>
+      <a href="https://sites.google.com/view/curso-ingles-trainer/inicio" target="_blank" class="bg-blue-600 text-white px-6 py-3 rounded-lg text-center font-semibold hover:bg-blue-700 transition">Ir al Curso</a>
+    </div>
   </main>
+
+  <footer class="bg-blue-800 text-white py-6 text-center text-sm mt-16">
+    © 2025 MiMarca. Todos los derechos reservados.
+  </footer>
 </body>
 </html>
