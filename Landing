@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bocetador de Landing Pages</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .estilo-1 { font-family: 'Helvetica Neue', sans-serif; }
+    .estilo-2 { font-family: 'Georgia', serif; }
+    .estilo-3 { font-family: 'Courier New', monospace; }
+    .estilo-4 { font-family: 'Poppins', sans-serif; }
+  </style>
+</head>
+<body class="transition-all ease-in-out duration-300" id="pageBody">
+  <div class="p-4 border-b shadow-md flex gap-4 flex-wrap bg-white sticky top-0 z-10">
+    <div>
+      <label class="block text-sm font-bold mb-1">Estilo</label>
+      <select id="styleSelect" class="p-2 border rounded">
+        <option value="estilo-1">Moderno (Helvetica)</option>
+        <option value="estilo-2">Clásico (Georgia)</option>
+        <option value="estilo-3">Técnico (Courier)</option>
+        <option value="estilo-4">Fresco (Poppins)</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="block text-sm font-bold mb-1">Colores</label>
+      <select id="colorSelect" class="p-2 border rounded">
+        <option value="azul">Azul / Blanco</option>
+        <option value="oscuro">Gris oscuro / Blanco</option>
+        <option value="verde">Verde / Crema</option>
+        <option value="morado">Morado / Gris claro</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="block text-sm font-bold mb-1">Encabezado</label>
+      <select id="headerSelect" class="p-2 border rounded">
+        <option value="con">Con imagen destacada</option>
+        <option value="sin">Solo texto</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="block text-sm font-bold mb-1">Llamado a la acción</label>
+      <select id="ctaSelect" class="p-2 border rounded">
+        <option value="whatsapp">WhatsApp</option>
+        <option value="formulario">Formulario de contacto</option>
+      </select>
+    </div>
+  </div>
+
+  <main class="p-6" id="landingPreview">
+    <!-- Contenido de la landing inicial -->
+    <section class="text-center py-12">
+      <h1 class="text-4xl font-bold mb-4">Sesiones de Coaching para Traders</h1>
+      <p class="text-lg max-w-xl mx-auto">Eleva tu rendimiento como trader con sesiones personalizadas enfocadas en estrategia, psicología del trading y mejora continua.</p>
+    </section>
+    <section class="flex justify-center py-8" id="ctaSection">
+      <a href="https://wa.me/573156200576" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition">Contáctame por WhatsApp</a>
+    </section>
+  </main>
+
+  <script>
+    const body = document.getElementById('pageBody');
+    const preview = document.getElementById('landingPreview');
+    const ctaSection = document.getElementById('ctaSection');
+
+    document.getElementById('styleSelect').addEventListener('change', (e) => {
+      body.classList.remove('estilo-1', 'estilo-2', 'estilo-3', 'estilo-4');
+      body.classList.add(e.target.value);
+    });
+
+    document.getElementById('colorSelect').addEventListener('change', (e) => {
+      const scheme = e.target.value;
+      switch (scheme) {
+        case 'azul':
+          body.className += ' bg-white text-blue-800';
+          break;
+        case 'oscuro':
+          body.className += ' bg-gray-900 text-white';
+          break;
+        case 'verde':
+          body.className += ' bg-emerald-100 text-emerald-800';
+          break;
+        case 'morado':
+          body.className += ' bg-purple-100 text-purple-800';
+          break;
+      }
+    });
+
+    document.getElementById('headerSelect').addEventListener('change', (e) => {
+      const section = preview.querySelector('section');
+      if (e.target.value === 'con') {
+        section.innerHTML = `<img src='https://source.unsplash.com/1200x300/?trading' class='mx-auto mb-6 rounded-lg'><h1 class="text-4xl font-bold mb-4">Sesiones de Coaching para Traders</h1><p class="text-lg max-w-xl mx-auto">Eleva tu rendimiento como trader con sesiones personalizadas enfocadas en estrategia, psicología del trading y mejora continua.</p>`;
+      } else {
+        section.innerHTML = `<h1 class="text-4xl font-bold mb-4">Sesiones de Coaching para Traders</h1><p class="text-lg max-w-xl mx-auto">Eleva tu rendimiento como trader con sesiones personalizadas enfocadas en estrategia, psicología del trading y mejora continua.</p>`;
+      }
+    });
+
+    document.getElementById('ctaSelect').addEventListener('change', (e) => {
+      if (e.target.value === 'whatsapp') {
+        ctaSection.innerHTML = `<a href="https://wa.me/573156200576" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition">Contáctame por WhatsApp</a>`;
+      } else {
+        ctaSection.innerHTML = `<form class="max-w-md mx-auto">
+          <input type="text" placeholder="Tu nombre" class="w-full mb-2 p-2 border rounded" />
+          <input type="email" placeholder="Tu email" class="w-full mb-2 p-2 border rounded" />
+          <textarea placeholder="¿Cómo puedo ayudarte?" class="w-full p-2 border rounded mb-2"></textarea>
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Enviar</button>
+        </form>`;
+      }
+    });
+  </script>
+</body>
+</html>
