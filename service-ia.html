@@ -14,13 +14,103 @@
     <p class="mb-6">[Texto demo] Implementamos soluciones de IA que ahorran tiempo y dinero.</p>
 
     <!-- Formulario genérico -->
-    <form name="ia-consult" method="POST" data-netlify="true" class="bg-gray-50 p-6 rounded-lg shadow max-w-lg">
-      <h2 class="text-xl font-semibold mb-4">Solicita diagnóstico</h2>
-      <div class="mb-4"><input type="text" name="nombre" placeholder="Nombre" class="w-full border px-3 py-2 rounded" required></div>
-      <div class="mb-4"><input type="email" name="email" placeholder="Email" class="w-full border px-3 py-2 rounded" required></div>
-      <div class="mb-4"><textarea name="mensaje" placeholder="Descripción del reto" class="w-full border px-3 py-2 rounded" rows="4" required></textarea></div>
-      <button class="bg-blue-700 text-white px-4 py-2 rounded" type="submit">Enviar</button>
-    </form>
+   <!-- IA Assistant Form -->
+<section class="p-6 bg-blue-50 rounded-xl max-w-2xl mx-auto my-8 shadow-md">
+  <h2 class="text-2xl font-bold text-blue-800 mb-4">¿Cómo puede ayudarte la IA?</h2>
+  <p class="mb-4 text-gray-700">Cuéntame a qué te dedicas y te mostraré cómo la IA puede hacer tu vida más fácil.</p>
+
+  <form id="iaForm" class="space-y-4">
+    <label class="block">
+      <span class="text-gray-800 font-semibold">Tu actividad o profesión</span>
+      <input type="text" id="actividad" placeholder="Ej: soy profesor, emprendedor, freelancer..." required
+             class="mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:border-blue-400" />
+    </label>
+
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+      Ver ideas con IA
+    </button>
+  </form>
+
+  <div id="ideas" class="mt-6 hidden">
+    <h3 class="text-lg font-semibold text-blue-700 mb-2">5 ideas para usar IA en tu actividad:</h3>
+    <ul id="ideasList" class="list-disc list-inside text-gray-700 space-y-1"></ul>
+
+    <div class="mt-6 bg-blue-100 p-4 rounded-md text-blue-900">
+  <p class="mb-3"><strong>¿Te gustaría aprender a aplicar estas ideas?</strong> Escríbeme y te acompaño como mentor.</p>
+  <a href="https://wa.me/573156200576?text=Hola%20Guillermo%2C%20vi%20tu%20portafolio%20y%20quiero%20saber%20más%20sobre%20cómo%20usar%20IA%20para%20mejorar%20mi%20productividad"
+     target="_blank"
+     class="inline-block bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition">
+    📲 Escríbeme por WhatsApp
+  </a>
+</div>
+
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('iaForm');
+  const actividadInput = document.getElementById('actividad');
+  const ideasContainer = document.getElementById('ideas');
+  const ideasList = document.getElementById('ideasList');
+
+  const ideasIA = {
+    profesor: [
+      "Generar ejercicios personalizados usando IA",
+      "Crear resúmenes automáticos para tus clases",
+      "Diseñar exámenes con dificultad ajustada por nivel",
+      "Corregir trabajos de forma más rápida con IA",
+      "Traducir contenidos educativos a otros idiomas"
+    ],
+    emprendedor: [
+      "Crear planes de negocio con ayuda de IA",
+      "Generar ideas de contenido para redes",
+      "Redactar correos a clientes con ChatGPT",
+      "Analizar datos de ventas automáticamente",
+      "Hacer estudios de mercado con prompts"
+    ],
+    freelancer: [
+      "Automatizar respuestas a clientes",
+      "Mejorar tu portafolio con descripciones generadas por IA",
+      "Traducir trabajos o textos rápidamente",
+      "Agendar tareas y organizar tu día con IA",
+      "Redactar propuestas y cotizaciones en segundos"
+    ],
+    marketing: [
+      "Escribir copys efectivos con IA",
+      "Hacer calendarios de contenido más rápido",
+      "Crear anuncios en múltiples plataformas",
+      "Analizar métricas y obtener conclusiones",
+      "Segmentar audiencias usando prompts"
+    ],
+    programador: [
+      "Generar funciones base con IA",
+      "Explicar código automáticamente",
+      "Buscar errores y sugerencias de corrección",
+      "Documentar tu código con IA",
+      "Crear plantillas para proyectos repetitivos"
+    ]
+  };
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const actividad = actividadInput.value.toLowerCase();
+    ideasList.innerHTML = '';
+    ideasContainer.classList.remove('hidden');
+
+    const ideas = Object.entries(ideasIA).find(([key]) => actividad.includes(key));
+
+    if (ideas) {
+      ideas[1].forEach(i => {
+        const li = document.createElement('li');
+        li.textContent = i;
+        ideasList.appendChild(li);
+      });
+    } else {
+      ideasList.innerHTML = `<li>Podrías usar la IA para automatizar tareas, generar ideas de contenido, organizar tu día y mucho más. ¡Yo puedo enseñarte cómo hacerlo!</li>`;
+    }
+  });
+</script>
+
   </main>
 </body>
 </html>
